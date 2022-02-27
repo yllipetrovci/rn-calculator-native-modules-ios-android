@@ -13,6 +13,15 @@ const CalculatorScreen = () => {
     const [secondInputValue, setSecondInputValue] = useState(0);
     const [result, setResult] = useState(0);
 
+    const onPressGenerateResult = () => {
+        console.log('onPressGenerateResult');
+        const firstInput = regulateNumberFormat(firstNumber);
+        const secondInput = regulateNumberFormat(secondNumber);
+
+        setResult(regulateNumberFormat(firstInput + secondInput));
+
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.form}>

@@ -6,7 +6,7 @@ import {
     View,
     Text
 } from 'react-native';
-import NumberInput from '../component/NumberInput';
+import NumberInput from '../components/NumberInput';
 
 const CalculatorScreen = () => {
     const [firstInputValue, setFirstInputValue] = useState(0);

@@ -19,7 +19,10 @@ const CalculatorScreen = () => {
         const secondInput = regulateNumberFormat(secondNumber);
 
         setResult(regulateNumberFormat(firstInput + secondInput));
+    }
 
+    const regulateNumberFormat = () => {
+        return parseFloat(firstNumber);
     }
 
     return (

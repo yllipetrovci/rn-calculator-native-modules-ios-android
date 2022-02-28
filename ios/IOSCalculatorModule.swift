@@ -17,6 +17,6 @@ class IOSCalculatorModule : NSObject {
     
     print("Two numbers firstNumber:"+String(format: "%.1f", result))
     
-    successCallback([result])
+    successCallback([(result as Double)])
   }
 }

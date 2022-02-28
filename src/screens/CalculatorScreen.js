@@ -4,9 +4,11 @@ import {
     StyleSheet,
     Button,
     View,
-    Text
+    Text,
+    Alert
 } from 'react-native';
 import NumberInput from '../components/NumberInput';
+import calculationModule from '../module/CalculationModule';
 
 const CalculatorScreen = () => {
     const [firstInputValue, setFirstInputValue] = useState(0);
@@ -20,6 +22,18 @@ const CalculatorScreen = () => {
 
         setResult(regulateNumberFormat(firstInput + secondInput));
     }
+
+    const calculatorResponse = (response) => {
+        console.log('CALCULATORRR');
+        // Alert.alert(response);
+        console.log({response});
+        setResult(response);
+    }
+
+    useEffect(() => {
+        calculationModule.calculate(12.2, 14.12, calculatorResponse);
+    }, [])
+
 
     const regulateNumberFormat = () => {
         return parseFloat(firstNumber);

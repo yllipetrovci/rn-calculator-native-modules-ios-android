@@ -21,9 +21,9 @@ public class AndroidCalculatorModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    private void open(double firstNumber, double secondNumber, int operatorCaseNumber, Callback onSuccessCallback) {
+    private void open(double firstNumber, double secondNumber, String operator, Callback onSuccessCallback) {
         System.out.println("Open method is called");
-        double result = __generateResultWithRandomlyOperator(firstNumber,secondNumber,operatorCaseNumber);
+        double result = __generateResultWithRandomlyOperator(firstNumber,secondNumber,operator);
 
         onSuccessCallback.invoke(result);
     }
@@ -36,27 +36,28 @@ public class AndroidCalculatorModule extends ReactContextBaseJavaModule {
     //   return (int)Math.floor(Math.random()*(max-min+1)+min);
     // }
 
-    private double __generateResultWithRandomlyOperator(double firstNumber, double secondNumber,int operatorCaseNumber){
+    private double __generateResultWithRandomlyOperator(double firstNumber, double secondNumber,String operator){
         double result = 0;
-        switch(operatorCaseNumber){
-            case 1:
+        
+        switch(operator){
+            case "+":
                 System.out.println("+ operator - firstNumber+secondNumber");
-                result = firstNumber+secondNumber;
+                result = (firstNumber+secondNumber);
             break;            
-            case 2:
+            case "-":
                 System.out.println("- operator - firstNumber-secondNumber");
-                result = firstNumber-secondNumber;
+                result = (firstNumber-secondNumber);
             break;
-            case 3:
+            case "/":
                 System.out.println("/ operator - firstNumber/secondNumber");
-                result = firstNumber/secondNumber;
+                result = (firstNumber/secondNumber);
             break;
-            case 4:
+            case "*":
                 System.out.println("* operator - firstNumber*secondNumber");
-                result = firstNumber*secondNumber;
+                result = (firstNumber*secondNumber);
             break;
-            default:
-             result = firstNumber+secondNumber;
+            // default:
+            //  result = firstNumber+secondNumber;
         }
 
         return result;

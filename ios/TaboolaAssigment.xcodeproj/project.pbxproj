@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* TaboolaAssigmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TaboolaAssigmentTests.m */; };
+		03C4A4A427CC4754000EFB2B /* IOSCalculatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A4A327CC4754000EFB2B /* IOSCalculatorModule.swift */; };
+		03C4A4A627CC4785000EFB2B /* IOSCalculatorModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A4A527CC4785000EFB2B /* IOSCalculatorModule.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -30,6 +32,9 @@
 		00E356EE1AD99517003FC87E /* TaboolaAssigmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaboolaAssigmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* TaboolaAssigmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaboolaAssigmentTests.m; sourceTree = "<group>"; };
+		03C4A4A327CC4754000EFB2B /* IOSCalculatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSCalculatorModule.swift; sourceTree = "<group>"; };
+		03C4A4A527CC4785000EFB2B /* IOSCalculatorModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSCalculatorModule.m; sourceTree = "<group>"; };
+		03C4A4A927CC4889000EFB2B /* TaboolaAssigment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TaboolaAssigment-Bridging-Header.h"; sourceTree = "<group>"; };
 		120C83333592D09959FE8AD1 /* libPods-TaboolaAssigment-TaboolaAssigmentTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaboolaAssigment-TaboolaAssigmentTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* TaboolaAssigment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaboolaAssigment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TaboolaAssigment/AppDelegate.h; sourceTree = "<group>"; };
@@ -104,7 +109,6 @@
 				DDE89F63DFF90A022A286CC4 /* Pods-TaboolaAssigment-TaboolaAssigmentTests.debug.xcconfig */,
 				1AF34ADE6F314477A445C441 /* Pods-TaboolaAssigment-TaboolaAssigmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,6 +132,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				03C4A4A927CC4889000EFB2B /* TaboolaAssigment-Bridging-Header.h */,
+				03C4A4A527CC4785000EFB2B /* IOSCalculatorModule.m */,
+				03C4A4A327CC4754000EFB2B /* IOSCalculatorModule.swift */,
 				13B07FAE1A68108700A75B9A /* TaboolaAssigment */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TaboolaAssigmentTests */,
@@ -208,7 +215,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -413,6 +420,8 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				03C4A4A427CC4754000EFB2B /* IOSCalculatorModule.swift in Sources */,
+				03C4A4A627CC4785000EFB2B /* IOSCalculatorModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDE89F63DFF90A022A286CC4 /* Pods-TaboolaAssigment-TaboolaAssigmentTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -458,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AF34ADE6F314477A445C441 /* Pods-TaboolaAssigment-TaboolaAssigmentTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = TaboolaAssigmentTests/Info.plist;
@@ -498,6 +509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TaboolaAssigment;
+				SWIFT_OBJC_BRIDGING_HEADER = "TaboolaAssigment-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -523,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TaboolaAssigment;
+				SWIFT_OBJC_BRIDGING_HEADER = "TaboolaAssigment-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

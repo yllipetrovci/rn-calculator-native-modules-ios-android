@@ -19,17 +19,27 @@ const CalculatorScreen = () => {
         return parseFloat(value);
     }
 
-    const onPressGenerateResult = () => {
-        console.log('onPressGenerateResult');
-        const firstInput = regulateNumberFormat(firstInputValue);
-        const secondInput = regulateNumberFormat(secondInputValue);
-        calculationModule.calculate(firstInput, secondInput, calculatorResponse);
+    const generateRandomOperatorCase = () => {
+        const max = 4;
+        const min = 1;
 
-        setResult(regulateNumberFormat(firstInput + secondInput));
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+    const onSubmit = () => {
+        console.log('onSubmit');
+        const firstInput = regulateNumberFormat(firstInputValue);
+        const secondInput = regulateNumberFormat(secondInputValue);
+        
+        calculationModule.calculate(firstInput, secondInput, generateRandomOperatorCase(), calculatorResponse);
+    }
+
+
     const calculatorResponse = (response) => {
-        setResult(response);
+        console.log('calculatorResponse')
+        console.log({ response });
+        // setResult(response);
+
     }
 
     return (
@@ -49,14 +59,12 @@ const CalculatorScreen = () => {
                 />
 
                 <Button
-                    onPress={onPressGenerateResult}
-                    title="Generate Result"
+                    onPress={onSubmit}
+                    title="Submit"
                     color="red"
-                    // disabled={true}
-                    accessibilityLabel="Learn more about this purple button"
                 />
 
-                <Text style={{ fontSize: 20,color:'#000', fontWeight: '600' }}>Result: {result}</Text>
+                <Text style={{ fontSize: 20, color: '#000', fontWeight: '600' }}>Result: {result}</Text>
             </View>
 
         </SafeAreaView>

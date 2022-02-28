@@ -9,27 +9,30 @@ import {
 } from 'react-native';
 import NumberInput from '../components/NumberInput';
 import calculationModule from '../module/CalculationModule';
+import { generateRandomOperator } from '../utilities/generateRandomOperator';
+import { roundNumbersWithTwoDecimalPlaces } from '../utilities/roundWithDecimalPlaces';
 
 const CalculatorScreen = () => {
     const [firstInputValue, setFirstInputValue] = useState(0);
     const [secondInputValue, setSecondInputValue] = useState(0);
+    const [operatorValue, setOperatorValue] = useState('');
     const [result, setResult] = useState(0);
 
-    const regulateNumberFormat = (value) => {
-        return parseFloat(value);
-    }
+    const onSubmit = () => {
+        const firstInput = roundNumbersWithTwoDecimalPlaces(firstInputValue);
+        const secondInput = roundNumbersWithTwoDecimalPlaces(secondInputValue);
 
-    const onPressGenerateResult = () => {
-        console.log('onPressGenerateResult');
-        const firstInput = regulateNumberFormat(firstInputValue);
-        const secondInput = regulateNumberFormat(secondInputValue);
-        calculationModule.calculate(firstInput, secondInput, calculatorResponse);
+        setFirstInputValue(firstInput);
+        setSecondInputValue(secondInput);
 
-        setResult(regulateNumberFormat(firstInput + secondInput));
+        const generateOperator = generateRandomOperator();
+        setOperatorValue(generateOperator);
+
+        calculationModule.calculate(firstInput, secondInput, generateOperator, calculatorResponse);
     }
 
     const calculatorResponse = (response) => {
-        setResult(response);
+        setResult(roundNumbersWithTwoDecimalPlaces(response));
     }
 
     return (
@@ -41,6 +44,10 @@ const CalculatorScreen = () => {
                     value={firstInputValue}
                     placeholder="Write numbers"
                 />
+                <View>
+                    <Text style={{ fontSize: 18, color: '#000', fontWeight: '600' }}>Operator: {operatorValue}</Text>
+
+                </View>
                 <NumberInput
                     onChangeNumber={setSecondInputValue}
                     label="Second Number"
@@ -49,14 +56,15 @@ const CalculatorScreen = () => {
                 />
 
                 <Button
-                    onPress={onPressGenerateResult}
-                    title="Generate Result"
+                    onPress={onSubmit}
+                    title="Submit"
                     color="red"
-                    // disabled={true}
-                    accessibilityLabel="Learn more about this purple button"
                 />
 
-                <Text style={{ fontSize: 20,color:'#000', fontWeight: '600' }}>Result: {result}</Text>
+                <View>
+                    <Text style={{ fontSize: 20, color: '#000', fontWeight: '600' }}>Result: {result}</Text>
+                </View>
+
             </View>
 
         </SafeAreaView>

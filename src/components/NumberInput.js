@@ -25,9 +25,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 4,
         padding: 10,
+        color:'#000',
     },
     lableTxt: {
         fontWeight: '500',
+        color:'#000',
     }
 });
 

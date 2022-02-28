@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -15,28 +15,21 @@ const CalculatorScreen = () => {
     const [secondInputValue, setSecondInputValue] = useState(0);
     const [result, setResult] = useState(0);
 
+    const regulateNumberFormat = (value) => {
+        return parseFloat(value);
+    }
+
     const onPressGenerateResult = () => {
         console.log('onPressGenerateResult');
-        const firstInput = regulateNumberFormat(firstNumber);
-        const secondInput = regulateNumberFormat(secondNumber);
+        const firstInput = regulateNumberFormat(firstInputValue);
+        const secondInput = regulateNumberFormat(secondInputValue);
+        calculationModule.calculate(firstInput, secondInput, calculatorResponse);
 
         setResult(regulateNumberFormat(firstInput + secondInput));
     }
 
     const calculatorResponse = (response) => {
-        console.log('CALCULATORRR');
-        // Alert.alert(response);
-        console.log({response});
         setResult(response);
-    }
-
-    useEffect(() => {
-        calculationModule.calculate(12.2, 14.12, calculatorResponse);
-    }, [])
-
-
-    const regulateNumberFormat = () => {
-        return parseFloat(firstNumber);
     }
 
     return (
@@ -63,7 +56,7 @@ const CalculatorScreen = () => {
                     accessibilityLabel="Learn more about this purple button"
                 />
 
-                <Text style={{ fontSize: 20, fontWeight: '600' }}>Result: {result}</Text>
+                <Text style={{ fontSize: 20,color:'#000', fontWeight: '600' }}>Result: {result}</Text>
             </View>
 
         </SafeAreaView>

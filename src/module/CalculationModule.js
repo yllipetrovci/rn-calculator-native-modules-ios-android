@@ -8,8 +8,10 @@ class CalculationModule {
         return Platform.OS === 'ios' ? IOSCalculatorModule : AndroidCalculatorModule;
     }
 
-    calculate(firstNumber, secondNumber, randomOperatorNumber, callback) {
-        this.getModule() !== null && this.getModule().open(firstNumber, secondNumber, randomOperatorNumber, (res) => callback(res))
+    calculate(firstNumber, secondNumber, randomOperatorValue, callback) {
+        this.getModule() !== null && this.getModule().calculateNumbers(firstNumber, secondNumber, 
+            randomOperatorValue, 
+            (res) => callback(res));
     }
 };
 

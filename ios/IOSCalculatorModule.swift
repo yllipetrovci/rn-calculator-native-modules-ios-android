@@ -11,12 +11,34 @@ import AVFoundation
 
 @objc(IOSCalculatorModule)
 class IOSCalculatorModule : NSObject {
-  @objc func open(_ firstNumber: Double, secondNumber: Double, callback successCallback: RCTResponseSenderBlock){
+  
+  @objc func test( _ location: NSString){
+    print(location)
+  }
+  
+  @objc func calculateNumbers(_ firstNumber: Double, secondNumber: Double, operatorValue: NSString, callback successCallback: RCTResponseSenderBlock){
     
-    let result = firstNumber + secondNumber ;
-    
-    print("Two numbers firstNumber:"+String(format: "%.1f", result))
-    
+    let result = __generateResultWithRandomlyOperator(firstNumber, secondNumber, operatorValue as String);
+        
     successCallback([(result as Double)])
+  }
+  
+  func __generateResultWithRandomlyOperator(_ firstNumber: Double, _ secondNumber:Double, _ operatorValue: String) -> Double{
+    
+    switch operatorValue {
+    case "+":
+      
+      return  firstNumber+secondNumber;
+      
+    case "-":
+      return firstNumber-secondNumber;
+      
+    case "/":
+      return firstNumber/secondNumber;
+    case "*":
+      return firstNumber*secondNumber;
+    default:
+      return -999;
+    }
   }
 }
